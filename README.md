@@ -144,9 +144,9 @@ myform.create_select( 'myselect', {'Option 1': 'opt1', 'Option 2': 'opt2', 'Opti
 //	<option label="Option 1" value="opt1">Option 1</option>
 //	<option label="Option 2" value="opt2">Option 2</option>
 //	<option disabled="" label="Option 3" value="opt3">Option 3</option>
-// </select>, 
+// </select>
 ````
-*first_option* can also be an object for a key/value pair(s)
+first_option can also be an object for a key/value pair(s)
 
 ###create_textarea ( name, value, attributes )
 Creates a textarea, <textarea>

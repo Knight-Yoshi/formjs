@@ -1,15 +1,10 @@
 class Form {
-	constructor(params = {}) {
-		this.initialize(params);
+	constructor(attrs = {}) {
+		this.initialize(attrs);
 	}
 	
-	initialize (params = {}) {
-		for( let key in params ) {
-			var val = params[key];
-			if(this.key) {
-				this.key = val;
-			}
-		}
+	initialize (attrs = {}) {
+		this.attrs = attrs;
 	}
 	
 	create_form (attrs = {}) {
@@ -22,18 +17,23 @@ class Form {
 	
 	create_multipart (attrs = {}) {
 		attrs.enctype = 'multipart/form-data';
-		return this.open(attrs);
+		return this.create_form(attrs);
 	}
 	
-	create_fieldset (fieldset_title, attrs = {}, fieldset_id = null) {
+	create_fieldset (fieldset_title, fieldset_id = '', attrs = {}) {
 		var fieldset = document.createElement('fieldset');
-		var legend = fieldset.appendChild(document.createElement('legend'));
 		
-		legend.textContent = fieldset_title;
+		if(fieldset_title) {
+			var legend = fieldset.appendChild(document.createElement('legend'));
+			
+			legend.textContent = fieldset_title;
+		}
 		
 		if(fieldset_id) {
 			fieldset.id = fieldset_id;
 		}
+		
+		Form.create_attrs(fieldset, attrs);
 		
 		return fieldset;
 	}
@@ -88,7 +88,7 @@ class Form {
 		return this.create_input(name,'file', '', attrs);
 	}
 	
-	create_select (name, options = [], value = '', attrs = {}, first_option = '', disabled = []) {
+	create_select (name, options = {}, value = '', attrs = {}, first_option = '', disabled = []) {
 		var select = new Form_select(name, options, value, attrs, first_option, disabled);
 		return this._create_element(select);
 	}
@@ -98,14 +98,14 @@ class Form {
 		return this._create_element(textarea);
 	}
 	
-	create_button (value, name = '', type = 'button', attrs = {}, use_input_type = true, text = '') {
+	create_button (value, name = '', type = 'button', attrs = {}, use_input = true, text = '') {
 		var button;
 		
-		if(use_input_type) {
+		if(use_input) {
 			if(!name) {
 				name = Form.create_id('form');
 			}
-			button = this.create_input(name, value, type, attrs);
+			button = this.create_input(name, type, value, attrs);
 		} else {
 			button = new Form_button(type, name, value, attrs, text);
 			button = button.render();
@@ -114,12 +114,12 @@ class Form {
 		return button;
 	}
 	
-	create_submit (value, name = '', attrs = {}, use_input_type = false, text = 'Submit') {
-		return this.create_button(value, name, 'submit', attrs, use_input_type, text);
+	create_submit (value, name = '', attrs = {}, use_input = false, text = 'Submit') {
+		return this.create_button(value, name, 'submit', attrs, use_input, text);
 	}
 	
-	create_reset (value, name = '', attrs = {}, use_input_type = false, text = 'Reset') {
-		return this.create_button(value, name, 'reset', attrs, use_input_type, text);
+	create_reset (value, name = '', attrs = {}, use_input = false, text = 'Reset') {
+		return this.create_button(value, name, 'reset', attrs, use_input, text);
 	}
 	
 	create_image (src, name = '', value = '', attrs = {}) {

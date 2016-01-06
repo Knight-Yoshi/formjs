@@ -40,7 +40,7 @@ myform.create_multipart( {
 } ); // outputs, <form class="classes-in an-array" data-mr-crabs="He was #1" enctype="multipart/form-data">
 ````
 
-###create_fieldset ( fieldset_title, fieldset_id, attributes, )
+###create_fieldset ( fieldset_title, fieldset_id, attributes )
 Creates a fieldset, <fieldset> with a <legend>
 
 ````javascript
@@ -138,13 +138,7 @@ myform.create_file( 'myfile' ); // outputs, <input type="myfile">
 Creates a select, <select>
 
 ````javascript
-myform.create_select( 'myselect', {'Option 1': 'opt1', 'Option 2': 'opt2', 'Option 3': 'opt3'}, 'opt2', {}, 'Select Options', ['Option 3'] );
-// outputs, <select name="myselect">
-//	<option label="Select Options" value="">Select Options</option>
-//	<option label="Option 1" value="opt1">Option 1</option>
-//	<option label="Option 2" value="opt2">Option 2</option>
-//	<option disabled="" label="Option 3" value="opt3">Option 3</option>
-// </select>
+
 ````
 first_option can also be an object for a key/value pair(s)
 

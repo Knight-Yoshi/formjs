@@ -189,6 +189,3 @@ myform.create_image( 'Reset Value', 'myreset', {'class':'my-button reset'}, true
 ````
 
 ## Incomplete docs
-
-##Copyright and License
-Copyright (c) 2016 C. Reffett

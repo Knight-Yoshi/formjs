@@ -1,0 +1,30 @@
+{
+  "name": "formjs",
+  "version": "1.0.1",
+  "description": "FormJS allows you to create forms and form elements in JavaScript. It's non-constrictive as to what you do with the form element(s) once they're generated.",
+  "main": "form.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Knight-Yoshi/formjs.git"
+  },
+  "keywords": [
+    "form",
+    "forms",
+    "formjs",
+    "form",
+    "generation",
+    "checkbox",
+    "select",
+    "input",
+    "button"
+  ],
+  "author": "Knight Yoshi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Knight-Yoshi/formjs/issues"
+  },
+  "homepage": "https://github.com/Knight-Yoshi/formjs#readme"
+}
